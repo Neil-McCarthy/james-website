@@ -1,0 +1,539 @@
+@viewport{width:device-width}
+@import 'https://fonts.googleapis.com/css2?family=Staatliches&display=swap';
+* {
+    margin: 0;
+    padding: 0;
+}
+html{
+    height: 100$;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+body{
+    display:grid;
+    text-align:center;
+    grid-template-columns:repeat(5, 1fr);
+    grid-auto-rows:auto;
+    background-color: #e0c9ab;
+}
+main{
+    background-color:whitesmoke;
+}
+
+
+
+
+header{
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    position:relative;
+    text-align: center;
+    padding-top:1.5em;
+    padding-bottom:2em;
+    background-repeat: no-repeat;
+    height:30em;
+    margin-top:3em;
+    border-bottom:.5em solid;
+}
+nav{
+    position:fixed;
+    width:100%;
+    height:3em;
+    top:0;
+    left:0;
+    background-color: whitesmoke;
+    background-image: linear-gradient(to right, #e0c9ab , whitesmoke);
+    box-shadow:-.2em .5em 1em;
+    z-index:2;
+}
+aside{
+    float: right;
+    padding-bottom: 2em;
+    margin-right:2.5em;
+    background-color:whitesmoke;
+    background-image: linear-gradient(to right, whitesmoke, #e0c9ab);
+}
+footer{
+    grid-column:1/6;
+    text-align: center;
+    background-image: linear-gradient(to bottom, #e0c9ab , whitesmoke);
+    height:15em;
+}
+header:before{
+    content:'';
+    position:absolute;
+    top:0px;
+    right:0px;
+    bottom:0px;
+    left:0px;
+    width:100%;
+    height:100%;
+    background-image:url('../images/homePage.jpg');
+    opacity:.4;
+}
+header h1{
+    font-size: 90px;
+    position:relative;
+    text-align:center;
+    color:white;
+    text-shadow: -1.2px -1.2px 0 #000, 1.2px -1.2px 0 #000, -1.2px 1.2px 0 #000, 1.2px 1.2px 0 #000;
+/*    left:5%;
+    top:10%;
+    padding: 2em 3em;*/
+    font-family: 'Staatliches', cursive;
+}
+
+
+
+
+.index,.projectMain,.checkout{
+    grid-column-start: 1;
+    grid-column-end: 5;
+    box-shadow:-.2em -.2em .5em;
+
+    margin-left:2.5em;
+}
+.index,.projectMain{
+    display:grid;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+.checkout{
+    grid-row:3/4;
+    display:grid;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+.index{
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 10em;
+}
+.projectMain{
+    grid-template-columns: repeat(3, 2fr);
+    grid-auto-rows: auto;
+}
+.checkout{
+    grid-template-columns: repeat(2, 2fr);
+    grid-auto-rows: auto;
+}
+
+
+
+
+
+.projectMain section{
+    transition:1s;
+}
+
+
+
+#checkoutOptions{
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    height:3em;
+    margin:0 1.5em;
+    background-color: whitesmoke;
+    background-image: linear-gradient(to right, #e0c9ab , whitesmoke);
+}
+#checkoutOptions ul{
+    text-align:center;
+    padding-top:.5em;
+    border-bottom:.3em solid;
+}
+#checkoutOptions li{
+    display:inline;
+}
+#checkoutOptions li p{
+    display:inline;
+    font-size:110%;
+    padding:.5em 1em;
+    background-color:#e0c9ab;
+    font-family: 'Staatliches', cursive;
+    transition:.5s;
+    box-shadow:.2em .2em .2em;
+    margin:0 2em;
+}
+.checkout section{
+    grid-column:1/3;
+    grid-row:1/2;
+    transition: all .3s ease;
+}
+.checkout section p{
+    margin-top:2em;
+}
+
+
+
+
+.index section{
+    display:grid;
+    grid-template-columns: 50% 50%;
+    transition:1s;
+}
+.index section:hover,.projectMain section:hover{
+    background-color:rgba(224,201,171,.5);
+    transition:1s;
+}
+.index section:first-child{
+    grid-column:1/3;
+    grid-row:1/3;
+    display:inline;
+}
+.index button{
+    margin: 1.5em 4em;
+}
+.index section img{
+    margin: .5em auto 0em auto;
+    width:60%;
+    height:auto;
+}
+section h1, aside h1{
+    margin-top:1em;
+}
+
+
+
+nav a{
+    font-size:120%;
+    padding:.7em 1em;
+    background-color:#e0c9ab;
+    font-family: 'Staatliches', cursive;
+    transition:.5s;
+}
+a{
+    text-decoration:none;
+    color:black;
+}
+aside p{
+    margin: 0em 2.5em 1em 2.5em;
+}
+
+
+nav a:hover,#checkoutOptions li p:hover{
+    background-color:whitesmoke;
+    transition:.5s;
+}
+#checkoutOptions li p:hover{
+    padding:.5em 1em .7em 1em;
+}
+#che
+
+nav a:active{
+    
+}
+ul {
+    text-align:right;
+    list-style: none;
+    height:100%;
+}
+nav li{
+    display:inline;
+    /*margin:1em 0 0 1em;*/
+    height:2.5em;
+    line-height:2.9em;
+    /*padding:1.25em;*/
+}
+section{
+    /*border-bottom: .2em solid;*/
+/*    padding-top:2em;
+    padding-bottom:1em;*/
+}
+aside img{
+    max-width:75%;
+    height:auto;
+    border:.5em solid;
+    border-color:tan;
+    margin-top:1em;
+    margin-bottom:1em;
+    box-shadow:.5em .5em .4em;
+    transition:.3s;
+}
+aside img:hover{
+    transition:.3s;
+    max-width:90%;
+    box-shadow:.2em .2em .3em;
+}
+
+
+
+
+
+
+.projectMain section img{
+    width:100%;
+    height:100%;
+    margin:.5em;
+    box-shadow:.3em .3em .3em;
+    transform: rotate3d(0,0,1,6deg);
+    overflow:hidden;
+}
+.imagePile{
+    position:relative;
+    width:20em;
+    height:11.25em;
+    margin:1.5em auto 3.5em auto;
+    transition:.3s;
+}
+.imagePile img{
+    position: absolute;
+    top: 10%;
+    left: 0;
+    transition: all .3s ease-out;
+}
+.imagePile img:nth-child(1){
+    /*transform: rotate3d(0,0,1,6deg);*/
+    z-index:1;
+}
+.imagePile img:nth-child(2){
+    transform: rotate3d(0,0,1,6deg);
+}
+.imagePile img:nth-child(3){
+    transform: rotate3d(0,0,1,3deg);
+}
+.imagePile img:nth-child(4){
+    transform: rotate3d(0,0,1,3deg);
+}
+.imagePile:hover{
+    margin:3em auto;
+    transition:.3s;
+}
+.imagePile:hover img:nth-child(1){
+    transform: rotate3d(0,0,1,3deg);
+}
+.imagePile:hover img:nth-child(2){
+    transform: rotate3d(0,0,1,12deg);
+    left:6%;
+    top:2%;
+}
+.imagePile:hover img:nth-child(3){
+    transform: rotate3d(0,0,1,9deg);
+    left:4%;
+    top:5%;
+}
+.imagePile:hover img:nth-child(4){
+    transform: rotate3d(0,0,1,6deg);
+    left:2%;
+    top:9%;
+}
+.projectMain section p{
+    margin:1em;
+}
+
+
+
+
+
+.project img{
+    border-radius:1em 1em 1em 1em;
+    box-shadow:.3em .3em .3em;
+}
+.horizontal:hover{
+    width:25em;
+    height:14.0625em;
+    transition:.3s;
+    box-shadow:.1em .1em .3em;
+}
+.horizontal{
+    width:20em;
+    height:11.25em;
+    margin-top:3em;
+    transition:.3s;
+}
+.whatsappHorizontal:hover{
+    width:20em;
+    height:16em;
+    transition:.3s;
+    box-shadow:.1em .1em .3em;
+}
+.whatsappHorizontal{
+    width:16em;
+    height:12em;
+    transition:.3s;
+}
+.whatsappVertical:hover{
+    width:16em;
+    height:20em;
+    transition:.3s;
+    box-shadow:.1em .1em .3em;
+}
+.whatsappVertical{
+    width:12em;
+    height:16em;
+    transition:.3s;
+}
+.vertical:hover{
+    width:14.0625em;
+    height:25em;
+    transition:.3s;
+    box-shadow:.1em .1em .3em;
+}
+.vertical{
+    width:11.25em;
+    height:20em;
+    margin-top:3em;
+    transition:.3s;
+}
+.right:hover{
+    margin:1em 1.5em 1em 1em;
+}
+.right{
+    margin:2.5em 4em 2.5em 2.5em;
+    float:right;
+}
+.left:hover{
+    margin:1em 1em 1em 1.5em;
+}
+.left{
+    margin:2.5em 2.5em 2.5em 4em;
+    float:left;
+}
+.project{
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 3;
+}
+.project section p{
+    margin-top:2em;
+    margin-bottom:4em;
+}
+.project section p{
+    margin-bottom:3em;
+}
+#newDiv{
+    position: absolute;
+    height: 110em;
+    width: 100%;
+    background:rgba(64, 64, 64, 0.5);
+    display:block;
+    transition:.3s;
+}
+#contentBox{
+    width:60%;
+    height:60%;
+    position:fixed;
+    top:20%;
+    left:20%;
+    background-color:white;
+    display:grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: auto;
+}
+#contentBoxh1{
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    margin:auto;
+}
+#contentBoxp{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    margin:auto;
+    padding:0 1em;
+}
+#contentBoxspan{
+    position:absolute;
+    top:2%;
+    right:2%;
+    font-size:120%;
+    padding:.5em .75em;
+    border-radius:50%;
+    box-shadow:0 0 .4em;
+    transition:.3s;
+    opacity:.4;
+}
+#contentBoxform{
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    margin:auto;
+}
+#contentBoxspan:hover{
+    opacity:.8;
+    padding:.75em 1em;
+    transition:.3s;
+    right:1.7%;
+}
+
+
+#popImageVertical{
+/*    position:fixed;
+    top:20%;
+    left:20%;*/
+    position:center;
+    width:40%;
+    height:auto;
+    margin-top:2.5%;
+    transition: 5s;
+}
+#popImageHorizontal{
+    position:center;
+    margin-top:2.5%;
+    height:90%;
+    width:auto%;
+    transition: 5s;
+}
+#imgViewBox{
+    background-color:navy;
+    position:fixed;
+    width:80%;
+    height:90%;
+    margin-top:2.5%;
+    margin-left:10%;
+    overflow:hidden;
+    transition-duration:3s;
+}
+#imgViewBox .whatsappHorizontal{
+    width:100%;
+}
+#arrowLeft, #arrowRight{
+    position:absolute;
+    height:80%
+    width:20%;
+    background-color:whitesmoke;
+    padding:10em 4.5em;
+    font-size:200%;
+    box-shadow:0 0 .4em;
+    transition:.3s;
+    opacity:70%;
+    /*position:absolute;
+    top:2.5%;
+    padding:.5em .75em;
+    background-color:whitesmoke;
+    border-radius:50%;
+    font-size:200%;
+    box-shadow:0 0 .4em;
+    transition:.3s;
+    opacity:70%;*/
+}
+#arrowLeft{
+    top:10%;
+    left:2.5%;    
+}
+#arrowRight{
+    top:10%;
+    right:2.5%;
+}
+#arrowLeft:hover, #arrowRight:hover{
+    padding:10.5em 5em;
+    opacity:90%;
+}
+.checkout table{
+    width:50%;
+    margin:2.5%;
+}
+table, th, td{
+  border: 1px solid black;
+}
+th, td{
+    width:50%;
+}

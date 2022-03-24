@@ -293,7 +293,7 @@ addVariableButton.onclick =()=>{
         addVariableDropDownFlagTest = false;
     }
 }
-
+console.log('bingus bongis');
 addVariableApplyButton.onclick =()=>{
     body.appendChild(addVariableDiv);
     addVariableDiv.appendChild(document.createElement('textarea'));

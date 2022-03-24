@@ -1,0 +1,30 @@
+html{
+    height: 100$;
+}
+body{
+    margin: 0;
+    height: 100%;
+    text-align:center;
+}
+canvas {
+    display: block;
+    margin:2.5% auto;
+    background-color: black;
+}
+#scoreboard{
+    position:absolute;
+    left:5%;
+    top:30%;
+    background-color:silver;
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    grid-auto-rows:auto;
+}
+#scoreboard h1{
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+#scoreboard p{
+    grid-row-start: 2;
+    text-align:center;
+}

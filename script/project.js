@@ -51,16 +51,23 @@ window.onclick = function(event) {
 function thisFunction(){
     specificImageString = imageID.toString();
     let fileType = '.jpg'
-    if (pageSelector == 'edging'){
+    if ((pageSelector == 'edging')||(pageSelector == 'treeRemovalHouse' && imageID == 6)){
         fileType = '.jpeg'
     }
-    console.log('../../images/projects/'+pageSelector+'/'+pageSelector+specificImageString+fileType);
-    newImage.src = '../../images/projects/'+pageSelector+'/'+pageSelector+specificImageString+fileType;
-    if ((pageSelector == 'edging' && imageID == 0) || (pageSelector == 'edging' && imageID == 1) || (pageSelector == 'edging' && imageID == 3) || (pageSelector == 'edging' && imageID == 4)){
+    if (pageSelector == 'treeRemovalHouse'){
+        newImage.src = '../../images/projects/clearing/house/'+pageSelector+specificImageString+fileType;
+    } else{
+        newImage.src = '../../images/projects/'+pageSelector+'/'+pageSelector+specificImageString+fileType;
+    }
+    if ((pageSelector == 'edging' && imageID == 0) || (pageSelector == 'edging' && imageID == 1) || (pageSelector == 'edging' && imageID == 3) || (pageSelector == 'edging' && imageID == 4) || (pageSelector == 'raisedBed' && imageID == 3) || (pageSelector == 'treeRemovalHouse' && imageID == 2)){
         newImage.setAttribute('id','popImageVertical');
-    } else if (pageSelector == 'edging' && imageID == 2){
+    } else if ((pageSelector == 'edging' && imageID == 2) || (pageSelector == 'raisedBed' && imageID == 0) || (pageSelector == 'raisedBed' && imageID == 1) || (pageSelector == 'raisedBed' && imageID == 2) || (pageSelector == 'raisedBed' && imageID == 4) || (pageSelector == 'treeRemovalHouse' && imageID == 0) || (pageSelector == 'treeRemovalHouse' && imageID == 1) || (pageSelector == 'treeRemovalHouse' && imageID == 3) || (pageSelector == 'treeRemovalHouse' && imageID == 4) || (pageSelector == 'treeRemovalHouse' && imageID == 5) || (pageSelector == 'treeRemovalHouse' && imageID == 6) || (pageSelector == 'treeRemovalHouse' && imageID == 7) || (pageSelector == 'treeRemovalHouse' && imageID == 8)){
         newImage.setAttribute('id','popImageHorizontal');
-    };
+    }/* else if ((pageSelector == 'raisedBed' && imageID == 0) || (pageSelector == 'raisedBed' && imageID == 1) || (pageSelector == 'raisedBed' && imageID == 2) || (pageSelector == 'raisedBed' && imageID == 4)){
+        newImage.setAttribute('id','popImageHorizontal');
+    } else if (pageSelector == 'raisedBed' && imageID == 3){
+        newImage.setAttribute('id','popImageVertical');
+    }*/
     imgViewBox.appendChild(newImage);
     newDiv.appendChild(imgViewBox);
     let element = document.getElementsByTagName('body')[0];

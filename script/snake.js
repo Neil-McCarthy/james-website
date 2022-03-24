@@ -66,7 +66,7 @@ function init() {
     //window.addEventListener('keyup',deactivate,false);
 
 
-    interval_id = window.setInterval(draw, speed);
+    interval_id = window.setInterval(draw, .3);
 }
 
 
@@ -79,7 +79,7 @@ function draw() {
     context.clearRect(0, 0, width, height);
     context.fillStyle ='red';
     context.fillRect(player.x, player.y, player.size, player.size);
-//     context.fillRect(player.x+player.size, player.y, player.size, player.size);
+    context.fillRect(player.x+player.size, player.y, player.size, player.size);
     context.fillStyle ='Blue';
     context.fillRect(player2.x, player2.y, player2.size, player2.size);
     context.strokeStyle = "white";
@@ -357,3 +357,5 @@ function deactivate(event){
         moveLeft = false;
     }
 }
+
+

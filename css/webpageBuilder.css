@@ -1,0 +1,208 @@
+@import "https://fonts.googleapis.com/css2?family=Orbitron&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@100&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Anton&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+body{
+    display:grid;
+    text-align:center;
+    grid-template-columns:repeat(5, 1fr);
+    grid-auto-rows:auto;
+    row-gap:5em;
+}
+header{
+/*    grid-row-start:1;*/
+/*    grid-column:1/6;*/
+    transition:1s;
+}
+header:hover{
+    background-color:yellow;
+}
+nav{
+/*    grid-row-start:2;*/
+/*    grid-column:1/6;*/
+    transition:1s;
+}
+nav ul{
+    list-style-type: none;
+}
+nav:hover{
+    background-color:yellow;
+}
+main{
+/*    grid-row-start:3;*/
+/*    grid-column:1/6;*/
+    transition:1s;
+}
+main:hover{
+    background-color:yellow;
+}
+aside{
+/*    grid-row-start:4;*/
+/*    grid-column:1/6;*/
+    transition:1s;
+}
+aside:hover{
+    background-color:yellow;
+}
+footer{
+/*    grid-row-start:5;*/
+/*    grid-column:1/6;*/
+    transition:1s;
+}
+footer:hover{
+    background-color:yellow;
+}
+#displayChangerMenu{
+    position:absolute;
+    background-color:silver;
+    z-index:1;
+    width:500px;
+    height:auto;
+    display:grid;
+    text-align:center;
+    grid-template-columns:repeat(4, 1fr);
+    grid-auto-rows:auto;
+    row-gap:.25em;
+    transition:1s;
+}
+#displayChangerMenu h1{
+    grid-column:1/5;
+    font-size: 1.5em;
+}
+
+#displayChangerMenuClose{
+    position:absolute;
+    top:.1em;
+    right:.1em;
+    font-size:100%;
+    padding:.25em .5em;
+    border-radius:50%;
+    box-shadow:0 0 .4em;
+    transition:.3s;
+    opacity:.4;
+}
+#displayChangerMenuClose:hover{
+    opacity:.8;
+    padding:.35em .6em;
+    transition:.3s;
+/*     right:.2em; */
+}
+#displayChangerMenu div{
+    background-color:whitesmoke;
+}
+.displayMenuButton{
+    margin:0em auto;
+    width:100%;
+    height:2em;
+    grid-column:1/2;
+}
+/*.hidden{
+    opacity: 0;
+    height: 0 !important;
+}*/
+#displayChangerMenuColourDisplayer{
+    background-color:cyan;
+/*    height:0 !important;*/
+    grid-column:3/4;
+    grid-row:2/3;
+    display:grid;
+    text-align:center;
+    grid-template-columns:repeat(2, 1fr);
+    grid-auto-rows:auto;
+    column-gap:.5em;
+    /*row-gap:.5em;*/
+    transition:2s ease-out;
+}
+#fontsUL{
+    grid-column:3/4;
+    grid-row:3/4;
+    list-style-type: none;
+}
+#elementsSelect{
+    grid-column:2/3;
+    grid-row:3/4;
+    height:2em;
+}
+#contentChangeMenuButton{
+    grid-column:3/4;
+    grid-row:4/5;
+}
+#contentChangerDiv,#addVariableDiv{
+    position:absolute;
+    width:40em;
+    height:20em;
+    background-color:silver;
+    z-index:3;
+    margin-top:10%;
+    margin-left:35%;
+    border-style:solid;
+    display:grid;
+    text-align:center;
+    grid-template-columns:repeat(1, 1fr);
+    grid-auto-rows:auto;
+}
+#contentChangerDiv textarea,#addVariableDiv textarea{
+    margin-top:10%;
+    grid-row:1/2;
+}
+#contentChangerDiv button,#addVariableDiv button{
+    grid-row:1/2;
+    grid-column:2/3;
+}
+#contentChangerDivClose,#addVariableDivClose{
+    position:absolute;
+    top:.1em;
+    right:.1em;
+    font-size:100%;
+    padding:.25em .5em;
+    border-radius:50%;
+    box-shadow:0 0 .4em;
+    transition:.3s;
+    opacity:.4;
+}
+#contentChangerDivClose:hover,#addVariableDivClose:hover{
+    opacity:.8;
+    padding:.35em .6em;
+    transition:.3s;
+}
+#placingSelect{
+    grid-column:2/3;
+    grid-row:5/6;
+}
+#placingApplyButton{
+    grid-column:3/4;
+    grid-row:5/6;
+}
+#displayChangerMenu li{
+    background-color:whitesmoke;
+    border-style: solid;
+    border-width: 1px 0 1px 0;
+}
+#displayChangerMenuColourDisplayer div{
+    width:1em;
+    height:1em;
+    padding:.2em;
+    margin:.1em;
+    border-style:solid;
+    border-width:50%;
+    border-color:black;
+}
+
+
+.navtop{
+    /*position:fixed;*/
+    width:100%;
+    /*height:3em;
+    top:0;
+    left:0;*/
+    grid-row:1/2;
+}
+select option{
+    text-align:center;
+}

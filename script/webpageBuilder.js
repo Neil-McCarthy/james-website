@@ -268,14 +268,17 @@ addVariableTextArea.setAttribute('cols',50);
 let addVariableDivClose = document.createElement('span');
 addVariableDivClose.appendChild(document.createTextNode('X'));
 addVariableDivClose.setAttribute('id','addVariableDivClose');
-addVariableDiv.appendChild(addVariableDivClose);
+// addVariableDiv.appendChild(addVariableDivClose);
 // addVariableDiv.appendChild(addVariableTextArea);
 let addVariableDivApplyButton = document.createElement('button');
 addVariableDivApplyButton.appendChild(document.createTextNode('Apply Changes'));
-addVariableDiv.appendChild(addVariableDivApplyButton);
+let addTextAreaButton = document.createElement('button');
+addTextAreaButton.appendChild(document.createTextNode('Add Text Area'));
+// addVariableDiv.appendChild(addVariableDivApplyButton);
 
 let createdElementHolder;
 let createdElementTextArea;
+let createdElementTextHolder;
 //ADD ELEMENT VARIABLES<<<
 
 
@@ -293,27 +296,44 @@ addVariableButton.onclick =()=>{
         addVariableDropDownFlagTest = false;
     }
 }
-console.log('bingus bongis');
+
 addVariableApplyButton.onclick =()=>{
     body.appendChild(addVariableDiv);
+    addVariableDiv.appendChild(addVariableDivClose);
+    addVariableDiv.appendChild(addVariableDivApplyButton);
     addVariableDiv.appendChild(document.createElement('textarea'));
+    addVariableDiv.appendChild(addTextAreaButton);
 }
 
 function createElement(elementToCreate){
     if (elementToCreate == 'paragragh'){
-        createdElementHolder = document.createElement('p');
-        createdElementHolder.appendChild(document.createTextNode('tester'));
-        areaSelected.appendChild(createdElementHolder);
+        for(let m=0;m<createdElementTextHolder.length;m++){
+            createdElementHolder = document.createElement('p');
+            createdElementHolder.appendChild(document.createTextNode(createdElementTextHolder[m].value));
+            areaSelected.appendChild(createdElementHolder);
+        }
+    }else if (elementToCreate == 'section'){
+        for(let m=0;m<createdElementTextHolder.length;m++){
+            createdElementHolder = document.createElement('section');
+            createdElementHolder.appendChild(document.createTextNode(createdElementTextHolder[m].value));
+            areaSelected.appendChild(createdElementHolder);
+        }
     }
 }
 
 addVariableDivClose.onclick =()=>{
     addVariableDiv.parentNode.removeChild(addVariableDiv);
 }
+
+addTextAreaButton.onclick =()=>{
+    addVariableDiv.appendChild(document.createElement('textarea'));
+}
+
 addVariableDivApplyButton.onclick =()=>{
+    createdElementTextHolder = addVariableDiv.getElementsByTagName('textarea');
     createElement(addVariableSelect1.value);
-//     areaSelected.getElementsByTagName(contentSelect1)[0].textContent = contentChangerTextArea.value;
-//     addVariableDiv.parentNode.removeChild(addVariableDiv);
+    clearSelected(addVariableDiv);
+    addVariableDiv.parentNode.removeChild(addVariableDiv);
 }
 //ADD ELEMENT FUMCTION<<<
 

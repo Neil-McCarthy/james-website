@@ -8,7 +8,8 @@ nav.style.gridRowStart = '2';
 nav.style.gridColumnStart = '3';
 const main = document.querySelector("main");
 main.style.gridRowStart = '3';
-main.style.gridColumnStart = '3';
+main.style.gridColumnStart = '2';
+main.style.gridColumnEnd='5';
 const aside = document.querySelector("aside");
 aside.style.gridRowStart = '4';
 aside.style.gridColumnStart = '3';
@@ -276,9 +277,17 @@ let addTextAreaButton = document.createElement('button');
 addTextAreaButton.appendChild(document.createTextNode('Add Text Area'));
 // addVariableDiv.appendChild(addVariableDivApplyButton);
 
-let createdElementHolder;
+let createdPElementHolder;
+let createdH1ElementHolder;
+let createdSectionElementHolder;
 let createdElementTextArea;
 let createdElementTextHolder;
+
+let createElementOptionsSection;
+let optionsCounter;
+
+let h1collect;
+
 //ADD ELEMENT VARIABLES<<<
 
 
@@ -298,35 +307,63 @@ addVariableButton.onclick =()=>{
 }
 
 addVariableApplyButton.onclick =()=>{
+    optionsCounter = 1;
     body.appendChild(addVariableDiv);
+    addVariableDiv.appendChild(document.createElement('h1'));
+    h1collect = addVariableDiv.querySelectorAll('h1');
+    h1collect[0].appendChild(document.createTextNode('Content creator'));
     addVariableDiv.appendChild(addVariableDivClose);
     addVariableDiv.appendChild(addVariableDivApplyButton);
-    addVariableDiv.appendChild(document.createElement('textarea'));
+    createElementOptions(addVariableSelect1.value);
     addVariableDiv.appendChild(addTextAreaButton);
 }
 
+function createElementOptions(elementCreating){
+    createElementOptionsSection = document.createElement('section');
+    createElementOptionsSection.appendChild(document.createElement('h1'));
+    createElementOptionsSection.appendChild(document.createElement('textarea'));
+    addVariableDiv.appendChild(createElementOptionsSection);
+    if (elementCreating == 'paragragh'){
+        h1collect = addVariableDiv.querySelectorAll('h1');
+        h1collect[optionsCounter].appendChild(document.createTextNode('Paragragh'));
+    }else if(elementCreating == 'section'){
+        createElementOptionsSection.appendChild(document.createElement('h1'));
+        createElementOptionsSection.appendChild(document.createElement('textarea'));
+        h1collect = addVariableDiv.querySelectorAll('h1');
+        h1collect[optionsCounter].appendChild(document.createTextNode('Heading'));
+        h1collect[optionsCounter + 1].appendChild(document.createTextNode('Content'));
+        optionsCounter++;
+    }
+    optionsCounter++;
+}
 function createElement(elementToCreate){
     if (elementToCreate == 'paragragh'){
         for(let m=0;m<createdElementTextHolder.length;m++){
-            createdElementHolder = document.createElement('p');
-            createdElementHolder.appendChild(document.createTextNode(createdElementTextHolder[m].value));
-            areaSelected.appendChild(createdElementHolder);
+            createdPElementHolder = document.createElement('p');
+            createdPElementHolder.appendChild(document.createTextNode(createdElementTextHolder[m].value));
+            areaSelected.appendChild(createdPElementHolder);
         }
     }else if (elementToCreate == 'section'){
-        for(let m=0;m<createdElementTextHolder.length;m++){
-            createdElementHolder = document.createElement('section');
-            createdElementHolder.appendChild(document.createTextNode(createdElementTextHolder[m].value));
-            areaSelected.appendChild(createdElementHolder);
+        for(let m=0;m<createdElementTextHolder.length;m += 2){
+            createdSectionElementHolder = document.createElement('section');
+            createdH1ElementHolder = document.createElement('h1');
+            createdPElementHolder = document.createElement('p');
+            createdH1ElementHolder.appendChild(document.createTextNode(createdElementTextHolder[m].value));
+            createdPElementHolder.appendChild(document.createTextNode(createdElementTextHolder[m+1].value));
+            createdSectionElementHolder.appendChild(createdH1ElementHolder);
+            createdSectionElementHolder.appendChild(createdPElementHolder);
+            areaSelected.appendChild(createdSectionElementHolder);
         }
     }
 }
 
 addVariableDivClose.onclick =()=>{
+    clearSelected(addVariableDiv);
     addVariableDiv.parentNode.removeChild(addVariableDiv);
 }
 
 addTextAreaButton.onclick =()=>{
-    addVariableDiv.appendChild(document.createElement('textarea'));
+    createElementOptions(addVariableSelect1.value);
 }
 
 addVariableDivApplyButton.onclick =()=>{

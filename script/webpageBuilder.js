@@ -280,6 +280,7 @@ addTextAreaButton.appendChild(document.createTextNode('Add Text Area'));
 let createdPElementHolder;
 let createdH1ElementHolder;
 let createdSectionElementHolder;
+let createdImgElementHolder;
 let createdElementTextArea;
 let createdElementTextHolder;
 
@@ -348,10 +349,13 @@ function createElement(elementToCreate){
             createdSectionElementHolder = document.createElement('section');
             createdH1ElementHolder = document.createElement('h1');
             createdPElementHolder = document.createElement('p');
+            createdImgElementHolder = document.createElement('img');
+            createdImgElementHolder.setAttribute('src','../../images/coffee.jpg');
             createdH1ElementHolder.appendChild(document.createTextNode(createdElementTextHolder[m].value));
             createdPElementHolder.appendChild(document.createTextNode(createdElementTextHolder[m+1].value));
             createdSectionElementHolder.appendChild(createdH1ElementHolder);
             createdSectionElementHolder.appendChild(createdPElementHolder);
+            createdSectionElementHolder.appendChild(createdImgElementHolder);
             areaSelected.appendChild(createdSectionElementHolder);
         }
     }

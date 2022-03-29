@@ -3,6 +3,10 @@ let popImageSelector = document.getElementsByClassName('popImage');
 let imageID
 let specificImageString='';
 
+let body = document.querySelector("body");
+let main = document.querySelector("main");
+let projectImageCollector = main.getElementsByTagName('img');
+console.log(projectImageCollector[0].src);
 
 for (let specificImageNumber=0; specificImageNumber < popImageSelector.length; specificImageNumber++){
     popImageSelector[specificImageNumber].onclick = function(){

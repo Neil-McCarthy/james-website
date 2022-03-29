@@ -6,15 +6,32 @@ let specificImageString='';
 let body = document.querySelector("body");
 let main = document.querySelector("main");
 let projectImageCollector = main.getElementsByTagName('img');
-console.log(projectImageCollector[0].src);
 
-for (let specificImageNumber=0; specificImageNumber < popImageSelector.length; specificImageNumber++){
-    popImageSelector[specificImageNumber].onclick = function(){
-        imageID = specificImageNumber;
-        thisFunction()
+let backgroundCoverDiv = document.createElement('div');
+backgroundCoverDiv.setAttribute('id','backgroundCoverDiv');
+let focusImageSection = document.createElement('section');
+focusImageSection.setAttribute('id','focusImageSection');
+let focusImageImg = document.createElement('img');
+
+
+// for (let specificImageNumber=0; specificImageNumber < popImageSelector.length; specificImageNumber++){
+//     popImageSelector[specificImageNumber].onclick = function(){
+//         imageID = specificImageNumber;
+//         thisFunction()
+//     }
+// }
+
+function zoomImage(imageSelected){
+
+}
+for (let specificImage=0; specificImage < projectImageCollector.length; specificImage++){
+    projectImageCollector[specificImage].onclick =()=>{
+        focusImageImg.setAttribute('src',projectImageCollector[specificImage].src);
+        focusImageSection.appendChild(focusImageImg);
+        body.appendChild(focusImageSection);
+        body.appendChild(backgroundCoverDiv);
     }
 }
-
 
 let newDiv = document.createElement('div');
 newDiv.setAttribute('id','newDiv');

@@ -462,7 +462,7 @@ aside img:hover{
     display:block;
     transition:.3s;
 }
-#productDisplayOptionSection{
+#productDisplayOptionSection,#focusImageSection{
     width:60%;
     height:60%;
     position:fixed;

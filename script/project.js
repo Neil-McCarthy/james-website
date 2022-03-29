@@ -49,6 +49,7 @@ window.onclick = function(event) {
 
 
 function thisFunction(){
+    console.log('here');
     specificImageString = imageID.toString();
     let fileType = '.jpg'
     if ((pageSelector == 'edging')||(pageSelector == 'treeRemovalHouse' && imageID == 6)){

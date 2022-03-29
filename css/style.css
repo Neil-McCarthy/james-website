@@ -106,6 +106,7 @@ h1{
 }
 
 
+
 .index,.projectMain,.checkout{
     grid-column-start: 1;
     grid-column-end: 5;
@@ -199,8 +200,21 @@ h1{
 
 .index section{
     display:grid;
-    grid-template-columns: 50% 50%;
-    transition:1s;
+    text-align:center;
+    grid-template-columns:repeat(2, 1fr);
+    grid-auto-rows:auto;
+}
+.index section h1{
+    grid-column:1/2;
+    grid-row:1/2;
+}
+.index section p{
+    grid-column:1/2;
+    grid-row:2/3;
+}
+.index section img{
+    grid-column:2/3;
+    grid-row:1/3;
 }
 .index section:hover,.projectMain section:hover{
     background-color:rgba(224,201,171,.5);
@@ -218,8 +232,9 @@ h1{
     margin: 1.5em 4em;
 }
 .index section img{
-    margin: .5em auto 0em auto;
-    width:60%;
+    margin: auto;
+    vertical-align: middle;
+    width:70%;
     height:auto;
 }
 section h1, aside h1{
@@ -439,7 +454,7 @@ aside img:hover{
 .project section p{
     margin-bottom:3em;
 }
-#newDiv{
+#backgroundCoverDiv{
     position: absolute;
     height: 115em;
     width: 100%;
@@ -447,7 +462,7 @@ aside img:hover{
     display:block;
     transition:.3s;
 }
-#contentBox{
+#productDisplayOptionSection{
     width:60%;
     height:60%;
     position:fixed;
@@ -458,14 +473,14 @@ aside img:hover{
     grid-template-columns: repeat(5, 1fr);
     grid-auto-rows: auto;
 }
-#contentBoxh1{
+#productDisplayOptionSection h1{
     grid-column-start: 1;
     grid-column-end: 6;
     grid-row-start: 1;
     grid-row-end: 2;
     margin:auto;
 }
-#contentBoxp{
+#productDisplayOptionSection p{
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 2;
@@ -473,7 +488,7 @@ aside img:hover{
     margin:auto;
     padding:0 1em;
 }
-#contentBoxspan{
+#productDisplayOptionSection span{
     position:absolute;
     top:2%;
     right:2%;
@@ -484,14 +499,14 @@ aside img:hover{
     transition:.3s;
     opacity:.4;
 }
-#contentBoxform{
+#productDisplayOptionSection form{
     grid-column-start: 1;
     grid-column-end: 6;
     grid-row-start: 4;
     grid-row-end: 5;
     margin:auto;
 }
-#contentBoxspan:hover{
+#productDisplayOptionSection span:hover{
     opacity:.8;
     padding:.75em 1em;
     transition:.3s;

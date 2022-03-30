@@ -448,14 +448,13 @@ aside img:hover{
 }
 
 .project section p{
-    margin-top:2em;
-    margin-bottom:4em;
+    display:relative;
 }
-.project section p{
+/* .project section p{
     margin-bottom:3em;
-}
+}*/
 #backgroundCoverDiv{
-    position: absolute;
+    position: fixed;
     height: 115em;
     width: 100%;
     background:rgba(64, 64, 64, 0.5);
@@ -464,14 +463,62 @@ aside img:hover{
 }
 #productDisplayOptionSection,#focusImageSection{
     width:60%;
-    height:60%;
+    height:85%;
     position:fixed;
-    top:20%;
+    top:10%;
     left:20%;
     background-color:white;
     display:grid;
     grid-template-columns: repeat(5, 1fr);
     grid-auto-rows: auto;
+}
+#focusImageSection{
+    background-color:white;
+    display:grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-auto-rows: auto;
+    z-index:1;
+}
+#focusImageSection h1{
+    grid-row:1/2;
+}
+#focusImageSection img{
+    width:100%;
+    height:auto;
+    grid-row:2/3;
+    margin: 0em auto;
+}
+#arrowLeft, #arrowRight{
+    position:fixed;
+    height:80%
+    width:20%;
+    background-color:whitesmoke;
+    padding:10em 4.5em;
+    font-size:200%;
+    box-shadow:0 0 .4em;
+    transition:.3s;
+    opacity:70%;
+    /*position:absolute;
+    top:2.5%;
+    padding:.5em .75em;
+    background-color:whitesmoke;
+    border-radius:50%;
+    font-size:200%;
+    box-shadow:0 0 .4em;
+    transition:.3s;
+    opacity:70%;*/
+}
+#arrowLeft{
+    top:10%;
+    left:2.5%;
+}
+#arrowRight{
+    top:10%;
+    right:2.5%;
+}
+#arrowLeft:hover, #arrowRight:hover{
+    opacity:90%;
+    transition:1s;
 }
 #productDisplayOptionSection h1{
     grid-column-start: 1;
@@ -488,7 +535,7 @@ aside img:hover{
     margin:auto;
     padding:0 1em;
 }
-#productDisplayOptionSection span{
+#productDisplayOptionSection span,#focusImageSection span{
     position:absolute;
     top:2%;
     right:2%;
@@ -544,38 +591,7 @@ aside img:hover{
 #imgViewBox .whatsappHorizontal{
     width:100%;
 }
-#arrowLeft, #arrowRight{
-    /*position:absolute;
-    height:80%
-    width:20%;
-    background-color:whitesmoke;
-    padding:10em 4.5em;
-    font-size:200%;
-    box-shadow:0 0 .4em;
-    transition:.3s;
-    opacity:70%;*/
-    position:absolute;
-    top:2.5%;
-    padding:.5em .75em;
-    background-color:whitesmoke;
-    border-radius:50%;
-    font-size:200%;
-    box-shadow:0 0 .4em;
-    transition:.3s;
-    opacity:70%;
-}
-#arrowLeft{
-    top:10%;
-    left:2.5%;    
-}
-#arrowRight{
-    top:10%;
-    right:2.5%;
-}
-#arrowLeft:hover, #arrowRight:hover{
-    padding:1em 1.25em;
-    opacity:90%;
-}
+
 .checkout table{
     width:50%;
     margin:2.5%;
@@ -586,6 +602,8 @@ table, th, td{
 th, td{
     width:50%;
 }
+
+
 
 
 

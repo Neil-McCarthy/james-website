@@ -1,97 +1,96 @@
-let pageSelector = document.getElementsByTagName('main')[0].id;
-let popImageSelector = document.getElementsByClassName('popImage');
-let imageID
-let specificImageString='';
-
 let body = document.querySelector("body");
 let main = document.querySelector("main");
 let projectImageCollector = main.getElementsByTagName('img');
-
+let selectImage;
 let backgroundCoverDiv = document.createElement('div');
 backgroundCoverDiv.setAttribute('id','backgroundCoverDiv');
 let focusImageSection = document.createElement('section');
 focusImageSection.setAttribute('id','focusImageSection');
+let focusImageH1= document.createElement('h1');
 let focusImageImg = document.createElement('img');
-
-
-// for (let specificImageNumber=0; specificImageNumber < popImageSelector.length; specificImageNumber++){
-//     popImageSelector[specificImageNumber].onclick = function(){
-//         imageID = specificImageNumber;
-//         thisFunction()
-//     }
-// }
-
-function zoomImage(imageSelected){
-
-}
-for (let specificImage=0; specificImage < projectImageCollector.length; specificImage++){
-    projectImageCollector[specificImage].onclick =()=>{
-        focusImageImg.setAttribute('src',projectImageCollector[specificImage].src);
-        focusImageSection.appendChild(focusImageImg);
-        body.appendChild(focusImageSection);
-        body.appendChild(backgroundCoverDiv);
-    }
-}
-
-let newDiv = document.createElement('div');
-newDiv.setAttribute('id','newDiv');
-let imgViewBox = document.createElement('div');
-imgViewBox.setAttribute('id','imgViewBox');
-let newImage = document.createElement('img');
+let productDisplayOptionSpan = document.createElement('span');
+productDisplayOptionSpan.appendChild(document.createTextNode('X'));
 let arrowLeft = document.createElement('span');
 arrowLeft.setAttribute('id','arrowLeft');
 arrowLeft.appendChild(document.createTextNode('<'));
 let arrowRight = document.createElement('span');
 arrowRight.setAttribute('id','arrowRight');
 arrowRight.appendChild(document.createTextNode('>'));
-imgViewBox.appendChild(arrowLeft);
-imgViewBox.appendChild(arrowRight);
+focusImageSection.appendChild(productDisplayOptionSpan);
+focusImageSection.appendChild(focusImageH1);
 
-
-arrowLeft.addEventListener('click', event=>{
-    if (imageID > 0){
-        imageID--;
-        thisFunction()
+for (let specificImage=0; specificImage < projectImageCollector.length; specificImage++){
+    projectImageCollector[specificImage].onclick =()=>{
+        selectImage = specificImage;
+        dimensionCorrector()
+        focusImageH1.appendChild(document.createTextNode('Heading'));
+        focusImageImg.setAttribute('src',projectImageCollector[specificImage].src);
+        focusImageSection.appendChild(focusImageImg);
+        body.appendChild(focusImageSection);
+        body.appendChild(backgroundCoverDiv);
+        if(selectImage != 0){
+            body.appendChild(arrowLeft);
+        }
+        if(selectImage != projectImageCollector.length -1){
+            body.appendChild(arrowRight);
+        }
     }
-});
-arrowRight.addEventListener('click', event=>{
-    if (imageID < popImageSelector.length - 1){
-        imageID++;
-        thisFunction()
+}
+
+function dimensionCorrector(){
+    if (projectImageCollector[selectImage].width < projectImageCollector[selectImage].height){
+            focusImageImg.style.height = '45%';
+            focusImageImg.style.width = 'auto';
+        } else if (projectImageCollector[selectImage].width > projectImageCollector[selectImage].height){
+            focusImageImg.style.height = 'auto';
+            focusImageImg.style.width = '80%';
+        }
+}
+arrowLeft.onclick =()=>{
+    if(selectImage != 0){
+        selectImage--;
+        focusImageImg.setAttribute('src',projectImageCollector[selectImage].src);
+        dimensionCorrector()
     }
-});
-
-
+    if(selectImage == 0){
+        arrowLeft.parentNode.removeChild(arrowLeft);
+    }
+    if(selectImage == projectImageCollector.length - 2){
+        body.appendChild(arrowRight);
+    }
+}
+arrowRight.onclick =()=>{
+    if(selectImage != projectImageCollector.length -1){
+        selectImage++;
+        focusImageImg.setAttribute('src',projectImageCollector[selectImage].src);
+        dimensionCorrector()
+    }
+    if(selectImage == projectImageCollector.length -1){
+        arrowRight.parentNode.removeChild(arrowRight);
+    }
+    if(selectImage == 1){
+        body.appendChild(arrowLeft);
+    }
+}
+productDisplayOptionSpan.onclick = function() {
+    clearAll();
+}
 window.onclick = function(event) {
-  if (event.target == newDiv) {;
-      newDiv.remove();
+  if (event.target == backgroundCoverDiv) {
+      clearAll();
   }
 }
 
-
-function thisFunction(){
-    console.log('here');
-    specificImageString = imageID.toString();
-    let fileType = '.jpg'
-    if ((pageSelector == 'edging')||(pageSelector == 'treeRemovalHouse' && imageID == 6)){
-        fileType = '.jpeg'
+function clearAll(){
+    while(focusImageH1.firstChild){
+        focusImageH1.removeChild(focusImageH1.firstChild);
     }
-    if (pageSelector == 'treeRemovalHouse'){
-        newImage.src = '../../images/projects/clearing/house/'+pageSelector+specificImageString+fileType;
-    } else{
-        newImage.src = '../../images/projects/'+pageSelector+'/'+pageSelector+specificImageString+fileType;
+    focusImageSection.parentNode.removeChild(focusImageSection);
+    backgroundCoverDiv.parentNode.removeChild(backgroundCoverDiv);
+    if(selectImage != projectImageCollector.length -1){
+        arrowRight.parentNode.removeChild(arrowRight);
     }
-    if ((pageSelector == 'edging' && imageID == 0) || (pageSelector == 'edging' && imageID == 1) || (pageSelector == 'edging' && imageID == 3) || (pageSelector == 'edging' && imageID == 4) || (pageSelector == 'raisedBed' && imageID == 3) || (pageSelector == 'treeRemovalHouse' && imageID == 2)){
-        newImage.setAttribute('id','popImageVertical');
-    } else if ((pageSelector == 'edging' && imageID == 2) || (pageSelector == 'raisedBed' && imageID == 0) || (pageSelector == 'raisedBed' && imageID == 1) || (pageSelector == 'raisedBed' && imageID == 2) || (pageSelector == 'raisedBed' && imageID == 4) || (pageSelector == 'treeRemovalHouse' && imageID == 0) || (pageSelector == 'treeRemovalHouse' && imageID == 1) || (pageSelector == 'treeRemovalHouse' && imageID == 3) || (pageSelector == 'treeRemovalHouse' && imageID == 4) || (pageSelector == 'treeRemovalHouse' && imageID == 5) || (pageSelector == 'treeRemovalHouse' && imageID == 6) || (pageSelector == 'treeRemovalHouse' && imageID == 7) || (pageSelector == 'treeRemovalHouse' && imageID == 8)){
-        newImage.setAttribute('id','popImageHorizontal');
-    }/* else if ((pageSelector == 'raisedBed' && imageID == 0) || (pageSelector == 'raisedBed' && imageID == 1) || (pageSelector == 'raisedBed' && imageID == 2) || (pageSelector == 'raisedBed' && imageID == 4)){
-        newImage.setAttribute('id','popImageHorizontal');
-    } else if (pageSelector == 'raisedBed' && imageID == 3){
-        newImage.setAttribute('id','popImageVertical');
-    }*/
-    imgViewBox.appendChild(newImage);
-    newDiv.appendChild(imgViewBox);
-    let element = document.getElementsByTagName('body')[0];
-    element.appendChild(newDiv);
-};
+    if(selectImage != 0){
+        arrowLeft.parentNode.removeChild(arrowLeft);
+    }
+}

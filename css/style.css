@@ -124,6 +124,16 @@ h1{
     grid-column-end: 5;
     grid-row-start: 2;
     grid-row-end: 3;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
+}
+.project h1{
+    grid-column:1/4;
+    grid-row:1/2;
+}
+.project p{
+    margin:auto;
 }
 .checkout{
     grid-row:3/4;

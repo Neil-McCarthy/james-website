@@ -1,6 +1,8 @@
 let body = document.querySelector("body");
 let main = document.querySelector("main");
 let projectImageCollector = main.getElementsByTagName('img');
+let projectParagraphCollector = main.getElementsByTagName('p');
+let rowCounter = 2;
 let selectImage;
 let backgroundCoverDiv = document.createElement('div');
 backgroundCoverDiv.setAttribute('id','backgroundCoverDiv');
@@ -18,6 +20,25 @@ arrowRight.setAttribute('id','arrowRight');
 arrowRight.appendChild(document.createTextNode('>'));
 focusImageSection.appendChild(productDisplayOptionSpan);
 focusImageSection.appendChild(focusImageH1);
+
+// function structureImgAndP(){
+//     console.log('start');
+for(let specificParagraph = 0;specificParagraph<projectParagraphCollector.length;specificParagraph++){
+    if (specificParagraph % 2 == 0){
+        console.log('odd');
+        projectParagraphCollector[specificParagraph].style.gridRowStart = rowCounter.toString();
+        projectParagraphCollector[specificParagraph].style.gridColumnStart = '1';
+        projectParagraphCollector[specificParagraph].style.gridColumnEnd= '3';
+    } else{
+        console.log('even');
+        projectParagraphCollector[specificParagraph].style.gridRowStart = rowCounter.toString();
+        projectParagraphCollector[specificParagraph].style.gridColumnStart = '2';
+        projectParagraphCollector[specificParagraph].style.gridColumnEnd= '4';
+    }
+    rowCounter++;
+    console.log('rowCounter', rowCounter.type);
+}
+// }
 
 for (let specificImage=0; specificImage < projectImageCollector.length; specificImage++){
     projectImageCollector[specificImage].onclick =()=>{
@@ -94,3 +115,8 @@ function clearAll(){
         arrowLeft.parentNode.removeChild(arrowLeft);
     }
 }
+
+
+// window.onload = (event) => {
+//     structureImgAndP();
+// }

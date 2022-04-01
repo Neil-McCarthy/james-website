@@ -23,7 +23,7 @@ focusImageSection.appendChild(focusImageH1);
 
 // function structureImgAndP(){
 //     console.log('start');
-for(let specificParagraph = 0;specificParagraph<projectParagraphCollector.length;specificParagraph++){
+for(let specificParagraph = 0;specificParagraph < projectParagraphCollector.length;specificParagraph++){
     if (specificParagraph % 2 == 0){
         console.log('odd');
         projectParagraphCollector[specificParagraph].style.gridRowStart = rowCounter.toString();
@@ -34,6 +34,9 @@ for(let specificParagraph = 0;specificParagraph<projectParagraphCollector.length
         projectParagraphCollector[specificParagraph].style.gridRowStart = rowCounter.toString();
         projectParagraphCollector[specificParagraph].style.gridColumnStart = '2';
         projectParagraphCollector[specificParagraph].style.gridColumnEnd= '4';
+    }
+    if (specificParagraph == projectParagraphCollector.length - 1){
+        projectParagraphCollector[specificParagraph].style.gridColumnStart = '1';
     }
     rowCounter++;
     console.log('rowCounter', rowCounter.type);

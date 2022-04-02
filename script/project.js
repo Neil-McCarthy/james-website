@@ -21,16 +21,13 @@ arrowRight.appendChild(document.createTextNode('>'));
 focusImageSection.appendChild(productDisplayOptionSpan);
 focusImageSection.appendChild(focusImageH1);
 
-// function structureImgAndP(){
-//     console.log('start');
+
 for(let specificParagraph = 0;specificParagraph < projectParagraphCollector.length;specificParagraph++){
     if (specificParagraph % 2 == 0){
-        console.log('odd');
         projectParagraphCollector[specificParagraph].style.gridRowStart = rowCounter.toString();
         projectParagraphCollector[specificParagraph].style.gridColumnStart = '1';
         projectParagraphCollector[specificParagraph].style.gridColumnEnd= '3';
     } else{
-        console.log('even');
         projectParagraphCollector[specificParagraph].style.gridRowStart = rowCounter.toString();
         projectParagraphCollector[specificParagraph].style.gridColumnStart = '2';
         projectParagraphCollector[specificParagraph].style.gridColumnEnd= '4';
@@ -39,12 +36,11 @@ for(let specificParagraph = 0;specificParagraph < projectParagraphCollector.leng
         projectParagraphCollector[specificParagraph].style.gridColumnStart = '1';
     }
     rowCounter++;
-    console.log('rowCounter', rowCounter.type);
 }
-// }
 
 for (let specificImage=0; specificImage < projectImageCollector.length; specificImage++){
     projectImageCollector[specificImage].onclick =()=>{
+        console.log(projectImageCollector[specificImage].height);
         selectImage = specificImage;
         dimensionCorrector()
         focusImageH1.appendChild(document.createTextNode('Heading'));
@@ -61,14 +57,16 @@ for (let specificImage=0; specificImage < projectImageCollector.length; specific
     }
 }
 
+
+
 function dimensionCorrector(){
     if (projectImageCollector[selectImage].width < projectImageCollector[selectImage].height){
-            focusImageImg.style.height = '45%';
-            focusImageImg.style.width = 'auto';
-        } else if (projectImageCollector[selectImage].width > projectImageCollector[selectImage].height){
-            focusImageImg.style.height = 'auto';
-            focusImageImg.style.width = '80%';
-        }
+        focusImageImg.style.height = '45%';
+        focusImageImg.style.width = 'auto';
+    } else if (projectImageCollector[selectImage].width > projectImageCollector[selectImage].height){
+        focusImageImg.style.height = 'auto';
+        focusImageImg.style.width = '80%';
+    }
 }
 arrowLeft.onclick =()=>{
     if(selectImage != 0){

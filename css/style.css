@@ -143,8 +143,17 @@ h1{
     margin:auto;
     transition:.2s;
 }
+
 .project img:hover{
     width:95%;
+    transition:.2s;
+}
+.vertical{
+    height:400px !important;
+    width:auto !important;
+}
+.vertical:hover{
+    height:420px;
     transition:.2s;
 }
 .checkout{
@@ -555,8 +564,3 @@ table, th, td{
 th, td{
     width:50%;
 }
-
-
-
-
-

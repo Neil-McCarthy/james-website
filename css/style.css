@@ -21,6 +21,9 @@ body{
 main{
     background-color:whitesmoke;
     box-shadow:-.2em .5em 1em;
+    grid-column:2/5;
+    /*width:70%;
+    margin:auto;*/
 }
 header{
     grid-column-start: 1;
@@ -147,6 +150,7 @@ h1{
 .project img:hover{
     width:95%;
     transition:.2s;
+    box-shadow:.2em .2em .3em;
 }
 .vertical{
     height:400px !important;
@@ -348,50 +352,50 @@ aside img:hover{
     transform: rotate3d(0,0,1,6deg);
     overflow:hidden;
 }
-.imagePile{
+.projectMain section div{
     position:relative;
     width:20em;
     height:11.25em;
     margin:1.5em auto 3.5em auto;
     transition:.3s;
 }
-.imagePile img{
+.projectMain section img{
     position: absolute;
     top: 10%;
     left: 0;
     transition: all .3s ease-out;
 }
-.imagePile img:nth-child(1){
+.projectMain section img:nth-child(1){
     /*transform: rotate3d(0,0,1,6deg);*/
     z-index:1;
 }
-.imagePile img:nth-child(2){
+.projectMain section img:nth-child(2){
     transform: rotate3d(0,0,1,6deg);
 }
-.imagePile img:nth-child(3){
+.projectMain section img:nth-child(3){
     transform: rotate3d(0,0,1,3deg);
 }
-.imagePile img:nth-child(4){
+.projectMain section img:nth-child(4){
     transform: rotate3d(0,0,1,3deg);
 }
-.imagePile:hover{
+/*.imagePile:hover{
     margin:3em auto;
     transition:.3s;
-}
-.imagePile:hover img:nth-child(1){
+}*/
+.projectMain section:hover img:nth-child(1){
     transform: rotate3d(0,0,1,3deg);
 }
-.imagePile:hover img:nth-child(2){
+.projectMain section:hover img:nth-child(2){
     transform: rotate3d(0,0,1,12deg);
     left:6%;
     top:2%;
 }
-.imagePile:hover img:nth-child(3){
+.projectMain section:hover img:nth-child(3){
     transform: rotate3d(0,0,1,9deg);
     left:4%;
     top:5%;
 }
-.imagePile:hover img:nth-child(4){
+.projectMain section:hover img:nth-child(4){
     transform: rotate3d(0,0,1,6deg);
     left:2%;
     top:9%;
@@ -435,6 +439,10 @@ aside img:hover{
     grid-auto-rows: auto;
 }
 #focusImageSection{
+    width:75%;
+    height:auto;
+    top:7.5%;
+    left:12.5%;
     background-color:white;
     display:grid;
     grid-template-columns: repeat(1, 1fr);
@@ -452,14 +460,15 @@ aside img:hover{
 }
 #arrowLeft, #arrowRight{
     position:fixed;
-    height:80%
-    width:20%;
+    height:25%;
+    width:5%;
     background-color:whitesmoke;
-    padding:10em 4.5em;
+/*     padding:10em 4.5em; */
     font-size:200%;
     box-shadow:0 0 .4em;
     transition:.3s;
     opacity:70%;
+    border-radius:1em 1em 1em 1em;
     /*position:absolute;
     top:2.5%;
     padding:.5em .75em;
@@ -470,12 +479,15 @@ aside img:hover{
     transition:.3s;
     opacity:70%;*/
 }
+#arrowLeft p, #arrowRight p{
+    margin-top:100%;
+}
 #arrowLeft{
-    top:10%;
+    top:30%;
     left:2.5%;
 }
 #arrowRight{
-    top:10%;
+    top:30%;
     right:2.5%;
 }
 #arrowLeft:hover, #arrowRight:hover{

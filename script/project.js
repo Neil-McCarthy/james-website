@@ -12,12 +12,16 @@ let focusImageH1= document.createElement('h1');
 let focusImageImg = document.createElement('img');
 let productDisplayOptionSpan = document.createElement('span');
 productDisplayOptionSpan.appendChild(document.createTextNode('X'));
-let arrowLeft = document.createElement('span');
+let arrowLeft = document.createElement('div');
 arrowLeft.setAttribute('id','arrowLeft');
-arrowLeft.appendChild(document.createTextNode('<'));
-let arrowRight = document.createElement('span');
+// arrowLeft.appendChild(document.createTextNode('<'));
+arrowLeft.appendChild(document.createElement('p'));
+arrowLeft.firstChild.appendChild(document.createTextNode('<'));
+let arrowRight = document.createElement('div');
 arrowRight.setAttribute('id','arrowRight');
-arrowRight.appendChild(document.createTextNode('>'));
+arrowRight.appendChild(document.createElement('p'));
+arrowRight.firstChild.appendChild(document.createTextNode('>'));
+// arrowRight.appendChild(document.createTextNode('>'));
 focusImageSection.appendChild(productDisplayOptionSpan);
 focusImageSection.appendChild(focusImageH1);
 
@@ -65,7 +69,7 @@ function dimensionCorrector(){
         focusImageImg.style.width = 'auto';
     } else if (projectImageCollector[selectImage].width > projectImageCollector[selectImage].height){
         focusImageImg.style.height = 'auto';
-        focusImageImg.style.width = '80%';
+        focusImageImg.style.width = '100%';
     }
 }
 arrowLeft.onclick =()=>{

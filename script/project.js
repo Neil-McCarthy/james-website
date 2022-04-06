@@ -65,12 +65,11 @@ for (let specificImage=0; specificImage < projectImageCollector.length; specific
 
 function dimensionCorrector(){
     if (projectImageCollector[selectImage].width < projectImageCollector[selectImage].height){
-        focusImageImg.style.height = '45%';
-        focusImageImg.style.width = 'auto';
+        focusImageImg.style.width = '30%';
     } else if (projectImageCollector[selectImage].width > projectImageCollector[selectImage].height){
-        focusImageImg.style.height = 'auto';
         focusImageImg.style.width = '100%';
     }
+    focusImageImg.style.height = 'auto';
 }
 arrowLeft.onclick =()=>{
     if(selectImage != 0){

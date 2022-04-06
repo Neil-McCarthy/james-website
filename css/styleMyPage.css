@@ -346,13 +346,25 @@ main section{
 #homePage main section:nth-child(1):hover{
     opacity:1;
 }
-#homePage main section:nth-child(2),#homePage main section:nth-child(4){
+.sectionLeft{
+    margin:0% 100% 0% 0%;
+    width:0px;
+}
+.sectionRight{
+    margin:0% 0% 0% 100%;
+    width:0px;
+}
+
+.disappear{
+    width:0px;
+}
+/*#homePage main section:nth-child(2),#homePage main section:nth-child(4){
     margin:0% 100% 0% 0%;
 
 }
 #homePage main section:nth-child(3),#homePage main section:nth-child(5){
     margin:0% 0% 0% 100%;
-}
+}*/
 #homePage main section:nth-child(2) h1,#homePage main section:nth-child(2) p,#homePage main section:nth-child(4) h1,#homePage main section:nth-child(4) p,#homePage main section:nth-child(3) img,#homePage main section:nth-child(5) img{
     grid-column:2/3;
 }
